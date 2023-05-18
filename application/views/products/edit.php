@@ -104,7 +104,7 @@
                 <div class="form-group">
                   <label for="brands">Brands</label>
                   <?php $brand_data = json_decode($product_data['brand_id']); ?>
-                  <select class="form-control select_group" id="brands" name="brands[]" multiple="multiple">
+                  <select class="form-control select_group" id="brands" name="brands[]" multiple="multiple" required>
                     <?php foreach ($brands as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>" <?php if(in_array($v['id'], $brand_data)) { echo 'selected="selected"'; } ?>><?php echo $v['name'] ?></option>
                     <?php endforeach ?>

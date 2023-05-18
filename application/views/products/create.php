@@ -97,7 +97,7 @@
 
                 <div class="form-group">
                   <label for="brands">Brands</label>
-                  <select class="form-control select_group" id="brands" name="brands[]" multiple="multiple">
+                  <select class="form-control select_group" id="brands" name="brands[]" multiple="multiple" required>
                     <?php foreach ($brands as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
                     <?php endforeach ?>
