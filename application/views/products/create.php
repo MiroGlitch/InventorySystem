@@ -106,7 +106,7 @@
 
                 <div class="form-group">
                   <label for="category">Category</label>
-                  <select class="form-control select_group" id="category" name="category[]" multiple="multiple">
+                  <select class="form-control select_group" id="category" name="category[]" multiple="multiple" required>
                     <?php foreach ($category as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
                     <?php endforeach ?>
@@ -115,7 +115,7 @@
 
                 <div class="form-group">
                   <label for="store">Store</label>
-                  <select class="form-control select_group" id="store" name="store">
+                  <select class="form-control select_group" id="store" name="store" required>
                     <?php foreach ($stores as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
                     <?php endforeach ?>
@@ -123,7 +123,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="store">Availability</label>
+                  <label for="store">Availability</label required>
                   <select class="form-control" id="availability" name="availability">
                     <option value="1">Yes</option>
                     <option value="2">No</option>

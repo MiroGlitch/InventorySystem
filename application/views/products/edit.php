@@ -114,7 +114,7 @@
                 <div class="form-group">
                   <label for="category">Category</label>
                   <?php $category_data = json_decode($product_data['category_id']); ?>
-                  <select class="form-control select_group" id="category" name="category[]" multiple="multiple">
+                  <select class="form-control select_group" id="category" name="category[]" multiple="multiple" required>
                     <?php foreach ($category as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>" <?php if(in_array($v['id'], $category_data)) { echo 'selected="selected"'; } ?>><?php echo $v['name'] ?></option>
                     <?php endforeach ?>
@@ -123,7 +123,7 @@
 
                 <div class="form-group">
                   <label for="store">Store</label>
-                  <select class="form-control select_group" id="store" name="store">
+                  <select class="form-control select_group" id="store" name="store" required>
                     <?php foreach ($stores as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>" <?php if($product_data['store_id'] == $v['id']) { echo "selected='selected'"; } ?> ><?php echo $v['name'] ?></option>
                     <?php endforeach ?>
@@ -132,7 +132,7 @@
 
                 <div class="form-group">
                   <label for="store">Availability</label>
-                  <select class="form-control" id="availability" name="availability">
+                  <select class="form-control" id="availability" name="availability" required>
                     <option value="1" <?php if($product_data['availability'] == 1) { echo "selected='selected'"; } ?>>Yes</option>
                     <option value="2" <?php if($product_data['availability'] != 1) { echo "selected='selected'"; } ?>>No</option>
                   </select>
