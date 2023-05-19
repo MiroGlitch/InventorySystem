@@ -31,14 +31,15 @@
 
 </head>
 
+
 <style>
   .login-page {
+    background-color: #90CCF4;
     background-image: url('../assets/images/cmp.png');
     background-size: contain;
     background-repeat: no-repeat;
-    background-size: 750px 600px;
+    background-size: 600px 500px;
     background-position: right;
-    background-color: #90CCF4;
   }
 </style>
 
@@ -50,27 +51,33 @@
 </style>
 
 <body class="hold-transition login-page">
-
 <div class="login-box">
-  
   <!-- /.login-logo -->
   <style>
   .login-box-body {
     border-radius: 25px;
-    opacity: 0.7;
+    background-color: #F3D250;
   }
 </style>
   <div class="login-box-body">
-    <style>
-      .login-logo {
-        opacity: 1;
-      }
-    </style>
     <div class="login-logo">
     <a href="<?php echo base_url('auth/login'); ?>"><b>Login</b></a>
     </div>
+    <style>
+      .login-logo{
+      font-weight: bold;
+      font-family: georgia, serif;
+      color: black;
+      }
+    </style>
     <p class="login-box-msg">Sign in to start your session</p>
-    
+    <style>
+      .login-box-msg{
+      font-weight: bold;
+      font-family: georgia, serif;
+      color: black;
+      }
+    </style>
     <?php echo validation_errors(); ?>  
 
     <?php if(!empty($errors)) {
@@ -91,12 +98,21 @@
           <style>
             .icheckbox_square-blue{
               border-radius: 4px;
+              border-style: solid;
+              border-color: black;
             }
           </style>
           <div class="checkbox icheck">
             <label>
               <input type="checkbox"> Remember Me
             </label>
+            <style>
+              .checkbox{
+              font-weight: bold;
+              font-family: georgia, serif;
+              color: black;
+              }
+            </style>
           </div>
         </div>
         <!-- /.col -->
