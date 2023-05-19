@@ -38,6 +38,7 @@
     background-repeat: no-repeat;
     background-size: 750px 600px;
     background-position: right;
+    background-color: #90CCF4;
   }
 </style>
 
@@ -56,9 +57,15 @@
   <style>
   .login-box-body {
     border-radius: 25px;
+    opacity: 0.7;
   }
 </style>
   <div class="login-box-body">
+    <style>
+      .login-logo {
+        opacity: 1;
+      }
+    </style>
     <div class="login-logo">
     <a href="<?php echo base_url('auth/login'); ?>"><b>Login</b></a>
     </div>
