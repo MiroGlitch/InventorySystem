@@ -30,15 +30,37 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="<?php echo base_url('auth/login'); ?>"><b>Login</b></a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
 
+<style>
+  .login-page {
+    background-image: url('');
+    background-size: cover;
+  }
+</style>
+
+<style>
+  .hold-transition.login-page {
+    padding-right: 800px;
+    padding-top: 160px;
+  } 
+</style>
+
+<body class="hold-transition login-page">
+
+<div class="login-box">
+  
+  <!-- /.login-logo -->
+  <style>
+  .login-box-body {
+    border-radius: 25px;
+  }
+</style>
+  <div class="login-box-body">
+    <div class="login-logo">
+    <a href="<?php echo base_url('auth/login'); ?>"><b>Login</b></a>
+    </div>
+    <p class="login-box-msg">Sign in to start your session</p>
+    
     <?php echo validation_errors(); ?>  
 
     <?php if(!empty($errors)) {
@@ -56,6 +78,11 @@
       </div>
       <div class="row">
         <div class="col-xs-8">
+          <style>
+            .icheckbox_square-blue{
+              border-radius: 4px;
+            }
+          </style>
           <div class="checkbox icheck">
             <label>
               <input type="checkbox"> Remember Me
@@ -64,6 +91,11 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
+          <style>
+            .btn.btn-primary.btn-block.btn-flat {
+              border-radius: 8px;
+            }
+          </style>
           <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
         </div>
         <!-- /.col -->
