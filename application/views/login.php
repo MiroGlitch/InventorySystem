@@ -33,8 +33,11 @@
 
 <style>
   .login-page {
-    background-image: url('');
-    background-size: cover;
+    background-image: url('../assets/images/cmp.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 750px 600px;
+    background-position: right;
   }
 </style>
 
