@@ -11,6 +11,10 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
+<style>
+  .main-footer{
+    background-color: #A8D0E6;
+  }
+</style> 
 </body>
 </html>
