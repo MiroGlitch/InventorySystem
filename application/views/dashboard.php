@@ -33,6 +33,20 @@
           <div class="col-lg-3 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-aqua">
+            <style>
+              .small-box{
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                border-radius: 10px;
+              }
+             </style>  
+             <style>
+              .small-box-footer{
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+              }
+             </style>  
               <div class="inner">
                 <h3><?php echo $total_products ?></h3>
 
