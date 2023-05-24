@@ -31,105 +31,128 @@
 
 </head>
 
+<!-- CSS STYLES -->
+  
+  <style>
+  
+    .login-page {
+      background: rgb(152,242,224);
+      background: radial-gradient(circle, rgba(152,242,224,1) 0%, rgba(20,100,170,1) 100%);
+    }
+    
+    .container {
+      position: relative;
+    }
 
-<style>
-  .login-page {
-    background-color: #90CCF4;
-    background-image: url('../assets/images/cmp.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-size: 600px 500px;
-    background-position: right;
-  }
-</style>
+    
 
-<style>
-  .hold-transition.login-page {
-    padding-right: 800px;
-    padding-top: 160px;
-  } 
-</style>
+    .login-box-body {
+     border-radius: 25px;
+     background-color: #F8E9A1;
+     /*box-shadow: rgba(0, 0, 0, 0.5) 1px 18px 18px;*/
+     box-shadow: 0 0 50px black ;
+     z-index: 2;
+     top: 250px;
+     width:auto;
+     padding-left:400px ;
+     padding-right: 100px;
+     position: relative;
+     background-image: url(../assets/images/cmp.png);
+     background-position: 5% 50%;
+     background-size: 300px;
+     background-repeat: no-repeat;   
+    }
+
+    .hold-transition {
+      padding-top: 10px;      
+    }
+
+    .login-logo {
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+      color: black;
+    }
+
+   .login-box-msg {
+     font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+      color: black;
+    }
+
+   .icheckbox_square-blue {
+      border-radius: 4px;
+     
+     border-color: black;
+    }
+
+    .checkbox {
+      font-weight: bold;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;;
+      color: black;
+    }
+
+    .btn.btn-primary.btn-block.btn-flat {
+      border-radius: 8px;
+      
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;;
+    }
+  
+ </style>
+
+<!-- CSS STYLES -->
+
+  
+
 
 <body class="hold-transition login-page">
-<div class="login-box">
-  <!-- /.login-logo -->
-  <style>
-  .login-box-body {
-    border-radius: 25px;
-    background-color: #F3D250;
-  }
-</style>
+<div class="container">
+     <!-- /.login-box-body -->
   <div class="login-box-body">
+
     <div class="login-logo">
-    <a href="<?php echo base_url('auth/login'); ?>"><b>Login</b></a>
-    </div>
-    <style>
-      .login-logo{
-      font-weight: bold;
-      font-family: georgia, serif;
-      color: black;
-      }
-    </style>
-    <p class="login-box-msg">Sign in to start your session</p>
-    <style>
-      .login-box-msg{
-      font-weight: bold;
-      font-family: georgia, serif;
-      color: black;
-      }
-    </style>
-    <?php echo validation_errors(); ?>  
-
-    <?php if(!empty($errors)) {
-      echo $errors;
-    } ?>
-
-    <form action="<?php echo base_url('auth/login') ?>" method="post">
-      <div class="form-group has-feedback">
-        <input type="email" class="form-control" name="email" id="email" placeholder="Email" autocomplete="off">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      <a href="<?php echo base_url('auth/login'); ?>"><b>Login</b></a>
       </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <style>
-            .icheckbox_square-blue{
-              border-radius: 4px;
-              border-style: solid;
-              border-color: black;
-            }
-          </style>
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Remember Me
-            </label>
-            <style>
-              .checkbox{
-              font-weight: bold;
-              font-family: georgia, serif;
-              color: black;
-              }
-            </style>
+
+      <p class="login-box-msg">Sign in to start your session</p>
+
+      <?php echo validation_errors(); ?>  
+
+      <?php if(!empty($errors)) {
+        echo $errors;
+      } ?>
+
+      <form action="<?php echo base_url('auth/login') ?>" method="post">
+
+        <div class="form-group has-feedback">
+          <input type="email" class="form-control" name="email" id="email" placeholder="Email" autocomplete="off">
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        </div>
+
+        <div class="form-group has-feedback">
+          <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off">
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-8">
+            <div class="checkbox icheck">
+              <label>
+                <input type="checkbox"> Remember Me
+              </label>
+            </div>
           </div>
+          <!-- /.col -->
+          <div class="col-xs-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          </div>
+          <!-- /.col -->
         </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <style>
-            .btn.btn-primary.btn-block.btn-flat {
-              border-radius: 8px;
-            }
-          </style>
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-        </div>
-        <!-- /.col -->
-      </div>
-    </form>
-
+      </form>
+    </div>
   </div>
-  <!-- /.login-box-body -->
+
+  <div class="login-box"> 
+  </div>
 </div>
 <!-- /.login-box -->
 
