@@ -100,7 +100,10 @@
                           <select class="form-control select_group product" data-row-id="row_<?php echo $x; ?>" id="product_<?php echo $x; ?>" name="product[]" style="width:100%;" onchange="getProductData(<?php echo $x; ?>)" required>
                               <option value=""></option>
                               <?php foreach ($products as $k => $v): ?>
-                                <option value="<?php echo $v['id'] ?>" <?php if($val['product_id'] == $v['id']) { echo "selected='selected'"; } ?>><?php echo $v['name'] ?></option>
+                              <!-- If the product's qty is below 0, it will not show in the dropdown -->
+                              <?php if ($v['qty'] > 1): ?>
+                              <<option value="<?php echo $v['id']; ?>" <?php echo ($v['id'] == $val['product_id']) ? 'selected' : ''; ?>><?php echo $v['name']; ?></option>
+                              <?php endif; ?>
                               <?php endforeach ?>
                             </select>
                           </td>
@@ -248,14 +251,15 @@
           dataType: 'json',
           success:function(response) {
             
-
               // console.log(reponse.x);
                var html = '<tr id="row_'+row_id+'">'+
                    '<td>'+ 
                     '<select class="form-control select_group product" data-row-id="'+row_id+'" id="product_'+row_id+'" name="product[]" style="width:100%;" onchange="getProductData('+row_id+')">'+
                         '<option value=""></option>';
                         $.each(response, function(index, value) {
-                          html += '<option value="'+value.id+'">'+value.name+'</option>';             
+                          if (value.qty > 0) {
+                          html += '<option value="'+value.id+'">'+value.name+'</option>';    
+                          }         
                         });
                         
                       html += '</select>'+

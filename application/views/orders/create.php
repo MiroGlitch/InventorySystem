@@ -95,8 +95,11 @@
                         <select class="form-control select_group product" data-row-id="row_1" id="product_1" name="product[]" style="width:100%;" onchange="getProductData(1)" required>
                             <option value=""></option>
                             <?php foreach ($products as $k => $v): ?>
+                              <!-- If the product's qty is below 0, it will not show in the dropdown -->
+                              <?php if ($v['qty'] > 1): ?>
                               <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
-                            <?php endforeach ?>
+                              <?php endif; ?>
+                              <?php endforeach ?>
                           </select>
                         </td>
                         <td><input type="text" name="qty[]" id="qty_1" class="form-control" required onkeyup="getTotal(1)"></td>
@@ -214,7 +217,9 @@
                     '<select class="form-control select_group product" data-row-id="'+row_id+'" id="product_'+row_id+'" name="product[]" style="width:100%;" onchange="getProductData('+row_id+')">'+
                         '<option value=""></option>';
                         $.each(response, function(index, value) {
-                          html += '<option value="'+value.id+'">'+value.name+'</option>';             
+                          if (value.qty > 0) {
+                          html += '<option value="'+value.id+'">'+value.name+'</option>';
+                          }             
                         });
                         
                       html += '</select>'+
