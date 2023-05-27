@@ -2,6 +2,11 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+  <style>
+    .content-wrapper{
+    background-color: #A8D0E6;
+    }
+  </style>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -34,10 +39,25 @@
 
           <div class="box">
             <div class="box-header">
+            <style>
+                .box-header{
+                background-color: #A8D0E6;
+                }
+              </style>
               <h3 class="box-title">Edit User</h3>
+              <style>
+                .box-title{
+                background-color: #A8D0E6;
+                }
+              </style>
             </div>
             <form role="form" action="<?php base_url('users/create') ?>" method="post">
               <div class="box-body">
+              <style>
+                .box-body{
+                background-color: #A8D0E6;
+                }
+              </style>
 
                 <?php echo validation_errors(); ?>
 

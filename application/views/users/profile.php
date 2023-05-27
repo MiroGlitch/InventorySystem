@@ -2,6 +2,11 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+  <style>
+    .content-wrapper{
+      background-color: #A8D0E6;
+    }
+  </style>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -26,6 +31,11 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+            <style>
+                .box-body{
+                background-color: #A8D0E6;
+                }
+              </style>
               <table class="table table-bordered table-condensed table-hovered">
                 <tr>
                   <th>Username</th>

@@ -2,6 +2,11 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+  <style>
+    .content-wrapper{
+      background-color: #A8D0E6;
+    }
+  </style>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -40,6 +45,11 @@
             <!-- /.box-header -->
             <form role="form" action="<?php base_url('users/setting') ?>" method="post">
               <div class="box-body">
+              <style>
+                .box-body{
+                background-color: #A8D0E6;
+                }
+              </style>
 
                 <?php echo validation_errors(); ?>
 

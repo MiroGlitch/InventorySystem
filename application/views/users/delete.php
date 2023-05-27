@@ -2,12 +2,22 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+  <style>
+    .content-wrapper{
+    background-color: #A8D0E6;
+    }
+  </style>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         Manage
         <small>Groups</small>
       </h1>
+      <style>
+        .content-header{
+        background-color: #A8D0E6;
+         }
+      </style>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="<?php echo base_url('users/') ?>">Users</a></li>

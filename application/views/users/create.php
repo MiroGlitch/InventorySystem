@@ -4,10 +4,16 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
+    
       <h1>
         Manage
         <small>Users</small>
       </h1>
+      <style>
+    .content-wrapper{
+      background-color: #A8D0E6;
+    }
+  </style>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Users</li>
@@ -34,10 +40,25 @@
 
           <div class="box">
             <div class="box-header">
+            <style>
+                .box-header{
+                background-color: #A8D0E6;
+                }
+              </style>
               <h3 class="box-title">Add User</h3>
+              <style>
+                .box-title{
+                background-color: #A8D0E6;
+                }
+              </style>
             </div>
             <form role="form" action="<?php base_url('users/create') ?>" method="post">
               <div class="box-body">
+              <style>
+                .box-body{
+                background-color: #A8D0E6;
+                }
+              </style>
 
                 <?php echo validation_errors(); ?>
 
@@ -104,6 +125,11 @@
               <!-- /.box-body -->
 
               <div class="box-footer">
+              <style>
+                .box-footer{
+                background-color: #A8D0E6;
+                }
+              </style>
                 <button type="submit" class="btn btn-primary">Save Changes</button>
                 <a href="<?php echo base_url('users/') ?>" class="btn btn-warning">Back</a>
               </div>
