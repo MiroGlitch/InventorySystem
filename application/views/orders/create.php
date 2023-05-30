@@ -43,13 +43,13 @@
           <form role="form" action="<?php base_url('orders/create') ?>" method="post" class="form-horizontal">
               <div class="box-body">
 
-                <?php echo validation_errors(); ?>
-
+                <?php echo validation_errors(); date_default_timezone_set("Asia/Manila");?>
+                
                 <div class="form-group">
                   <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('Y-m-d') ?></label>
                 </div>
                 <div class="form-group">
-                  <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('h:i a') ?></label>
+                  <label for="gross_amount" class="col-sm-12 control-label">Time: <?php echo date('h:i A e') ?></label>
                 </div>
 
                 <div class="col-md-4 col-xs-12 pull pull-left">
@@ -57,21 +57,21 @@
                   <div class="form-group">
                     <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Name</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Enter Customer Name" autocomplete="off" />
+                      <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Enter Customer Name" required autocomplete="off" />
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Address</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="Enter Customer Address" autocomplete="off">
+                      <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="Enter Customer Address" required autocomplete="off">
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Phone</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" autocomplete="off">
+                      <input type="tel" class="form-control" id="customer_phone" name="customer_phone" placeholder="09XX-XXX-XXXX" pattern="[0-9]{4}[0-9]{3}[0-9]{4}" autocomplete="off">
                     </div>
                   </div>
                 </div>
@@ -81,11 +81,11 @@
                 <table class="table table-bordered" id="product_info_table">
                   <thead>
                     <tr>
-                      <th style="width:50%">Product</th>
-                      <th style="width:10%">Qty</th>
-                      <th style="width:10%">Rate</th>
-                      <th style="width:20%">Amount</th>
-                      <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th>
+                      <th style="width:50%;text-align:center">Product</th>
+                      <th style="width:15%;text-align:center">Quantity</th>
+                      <th style="width:10%;text-align:center">Price</th>
+                      <th style="width:20%;text-align:center">Total Amount</th>
+                      <th style="width:5%;text-align:center"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th>
                     </tr>
                   </thead>
 
@@ -102,7 +102,7 @@
                               <?php endforeach ?>
                           </select>
                         </td>
-                        <td><input type="text" name="qty[]" id="qty_1" class="form-control" required onkeyup="getTotal(1)"></td>
+                        <td><input type="number" name="qty[]" id="qty_1" class="form-control text-center" min="1" required onkeyup="getTotal(1)"></td>
                         <td>
                           <input type="text" name="rate[]" id="rate_1" class="form-control" disabled autocomplete="off">
                           <input type="hidden" name="rate_value[]" id="rate_value_1" class="form-control" autocomplete="off">
@@ -111,7 +111,7 @@
                           <input type="text" name="amount[]" id="amount_1" class="form-control" disabled autocomplete="off">
                           <input type="hidden" name="amount_value[]" id="amount_value_1" class="form-control" autocomplete="off">
                         </td>
-                        <td><button type="button" class="btn btn-default" onclick="removeRow('1')"><i class="fa fa-close"></i></button></td>
+                        <td><center><button type="button" class="btn btn-default" onclick="removeRow('1')"><i class="fa fa-close"></i></button></center></td>
                      </tr>
                    </tbody>
                 </table>
@@ -224,7 +224,7 @@
                         
                       html += '</select>'+
                     '</td>'+ 
-                    '<td><input type="number" name="qty[]" id="qty_'+row_id+'" class="form-control" onkeyup="getTotal('+row_id+')"></td>'+
+                    '<td><input type="number" name="qty[]" id="qty_'+row_id+'" class="form-control" min="1" onkeyup="getTotal('+row_id+')"></td>'+
                     '<td><input type="text" name="rate[]" id="rate_'+row_id+'" class="form-control" disabled><input type="hidden" name="rate_value[]" id="rate_value_'+row_id+'" class="form-control"></td>'+
                     '<td><input type="text" name="amount[]" id="amount_'+row_id+'" class="form-control" disabled><input type="hidden" name="amount_value[]" id="amount_value_'+row_id+'" class="form-control"></td>'+
                     '<td><button type="button" class="btn btn-default" onclick="removeRow(\''+row_id+'\')"><i class="fa fa-close"></i></button></td>'+
@@ -257,7 +257,7 @@
       subAmount();
 
     } else {
-      alert('no row !! please refresh the page');
+      alert('No row !! Please refresh the page');
     }
   }
 

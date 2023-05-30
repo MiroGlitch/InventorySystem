@@ -43,13 +43,13 @@
           <form role="form" action="<?php base_url('orders/create') ?>" method="post" class="form-horizontal">
               <div class="box-body">
 
-                <?php echo validation_errors(); ?>
+                <?php echo validation_errors(); date_default_timezone_set("Asia/Manila"); ?>
 
                 <div class="form-group">
-                  <label for="date" class="col-sm-12 control-label">Date: <?php echo date('Y-m-d') ?></label>
+                  <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('Y-m-d') ?></label>
                 </div>
                 <div class="form-group">
-                  <label for="time" class="col-sm-12 control-label">Date: <?php echo date('h:i a') ?></label>
+                  <label for="gross_amount" class="col-sm-12 control-label">Time: <?php echo date('h:i A e') ?></label>
                 </div>
 
                 <div class="col-md-4 col-xs-12 pull pull-left">
@@ -57,21 +57,21 @@
                   <div class="form-group">
                     <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Name</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Enter Customer Name" value="<?php echo $order_data['order']['customer_name'] ?>" autocomplete="off"/>
+                      <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Enter Customer Name" value="<?php echo $order_data['order']['customer_name'] ?>" required autocomplete="off"/>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Address</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="Enter Customer Address" value="<?php echo $order_data['order']['customer_address'] ?>" autocomplete="off">
+                      <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="Enter Customer Address" value="<?php echo $order_data['order']['customer_address'] ?>" required autocomplete="off">
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Phone</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" value="<?php echo $order_data['order']['customer_phone'] ?>" autocomplete="off">
+                      <input type="text" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" value="<?php echo $order_data['order']['customer_phone'] ?>" required autocomplete="off">
                     </div>
                   </div>
                 </div>
@@ -81,11 +81,11 @@
                 <table class="table table-bordered" id="product_info_table">
                   <thead>
                     <tr>
-                      <th style="width:50%">Product</th>
-                      <th style="width:10%">Qty</th>
-                      <th style="width:10%">Rate</th>
-                      <th style="width:20%">Amount</th>
-                      <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th>
+                      <th style="width:50%;text-align:center">Product</th>
+                      <th style="width:15%;text-align:center">Quantity</th>
+                      <th style="width:10%;text-align:center">Price</th>
+                      <th style="width:20%;text-align:center">Total Amount</th>
+                      <th style="width:5%;text-align:center"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th>
                     </tr>
                   </thead>
 
@@ -100,14 +100,11 @@
                           <select class="form-control select_group product" data-row-id="row_<?php echo $x; ?>" id="product_<?php echo $x; ?>" name="product[]" style="width:100%;" onchange="getProductData(<?php echo $x; ?>)" required>
                               <option value=""></option>
                               <?php foreach ($products as $k => $v): ?>
-                              <!-- If the product's qty is below 0, it will not show in the dropdown -->
-                              <?php if ($v['qty'] > 1): ?>
-                              <<option value="<?php echo $v['id']; ?>" <?php echo ($v['id'] == $val['product_id']) ? 'selected' : ''; ?>><?php echo $v['name']; ?></option>
-                              <?php endif; ?>
+                                <option value="<?php echo $v['id'] ?>" <?php if($val['product_id'] == $v['id']) { echo "selected='selected'"; } ?>><?php echo $v['name'] ?></option>
                               <?php endforeach ?>
                             </select>
                           </td>
-                          <td><input type="text" name="qty[]" id="qty_<?php echo $x; ?>" class="form-control" required onkeyup="getTotal(<?php echo $x; ?>)" value="<?php echo $val['qty'] ?>" autocomplete="off"></td>
+                          <td><input type="number" name="qty[]" id="qty_<?php echo $x; ?>" class="form-control text-center" min="1" required onkeyup="getTotal(<?php echo $x; ?>)" value="<?php echo $val['qty'] ?>" autocomplete="off"></td>
                           <td>
                             <input type="text" name="rate[]" id="rate_<?php echo $x; ?>" class="form-control" disabled value="<?php echo $val['rate'] ?>" autocomplete="off">
                             <input type="hidden" name="rate_value[]" id="rate_value_<?php echo $x; ?>" class="form-control" value="<?php echo $val['rate'] ?>" autocomplete="off">
@@ -116,7 +113,7 @@
                             <input type="text" name="amount[]" id="amount_<?php echo $x; ?>" class="form-control" disabled value="<?php echo $val['amount'] ?>" autocomplete="off">
                             <input type="hidden" name="amount_value[]" id="amount_value_<?php echo $x; ?>" class="form-control" value="<?php echo $val['amount'] ?>" autocomplete="off">
                           </td>
-                          <td><button type="button" class="btn btn-default" onclick="removeRow('<?php echo $x; ?>')"><i class="fa fa-close"></i></button></td>
+                          <td><center><button type="button" class="btn btn-default" onclick="removeRow('<?php echo $x; ?>')"><i class="fa fa-close"></i></button></center></td>
                        </tr>
                        <?php $x++; ?>
                      <?php endforeach; ?>
@@ -264,7 +261,7 @@
                         
                       html += '</select>'+
                     '</td>'+ 
-                    '<td><input type="number" name="qty[]" id="qty_'+row_id+'" class="form-control" onkeyup="getTotal('+row_id+')"></td>'+
+                    '<td><input type="number" name="qty[]" id="qty_'+row_id+'" class="form-control" min="1" onkeyup="getTotal('+row_id+')"></td>'+
                     '<td><input type="text" name="rate[]" id="rate_'+row_id+'" class="form-control" disabled><input type="hidden" name="rate_value[]" id="rate_value_'+row_id+'" class="form-control"></td>'+
                     '<td><input type="text" name="amount[]" id="amount_'+row_id+'" class="form-control" disabled><input type="hidden" name="amount_value[]" id="amount_value_'+row_id+'" class="form-control"></td>'+
                     '<td><button type="button" class="btn btn-default" onclick="removeRow(\''+row_id+'\')"><i class="fa fa-close"></i></button></td>'+
