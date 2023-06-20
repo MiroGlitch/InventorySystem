@@ -1,5 +1,38 @@
 
+<style>
 
+  .content-wrapper{
+    background-color: white;
+  }
+    
+  .box-header{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .box-title{
+    background-color: #A8D0E6;
+  }
+  
+  .box-body{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  
+  
+  .box-footer{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .form-control{
+    border-radius: 4px;
+  }
+
+  
+                            
+</style>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -9,11 +42,7 @@
         Manage
         <small>Users</small>
       </h1>
-      <style>
-    .content-wrapper{
-      background-color: #A8D0E6;
-    }
-  </style>
+    
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Users</li>
@@ -37,28 +66,14 @@
               <?php echo $this->session->flashdata('error'); ?>
             </div>
           <?php endif; ?>
-
-          <div class="box">
-            <div class="box-header">
-            <style>
-                .box-header{
-                background-color: #A8D0E6;
-                }
-              </style>
+          <div class="box-header">
               <h3 class="box-title">Add User</h3>
-              <style>
-                .box-title{
-                background-color: #A8D0E6;
-                }
-              </style>
-            </div>
+          </div>
+          <div class="box">
+            
             <form role="form" action="<?php base_url('users/create') ?>" method="post">
               <div class="box-body">
-              <style>
-                .box-body{
-                background-color: #A8D0E6;
-                }
-              </style>
+              
 
                 <?php echo validation_errors(); ?>
 
@@ -125,11 +140,6 @@
               <!-- /.box-body -->
 
               <div class="box-footer">
-              <style>
-                .box-footer{
-                background-color: #A8D0E6;
-                }
-              </style>
                 <button type="submit" class="btn btn-primary">Save Changes</button>
                 <a href="<?php echo base_url('users/') ?>" class="btn btn-warning">Back</a>
               </div>

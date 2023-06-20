@@ -50,12 +50,9 @@
       position: relative;
     }
 
-    
-
     .login-box-body {
      border-radius: 25px;
      background-color: #F8E9A1;
-     /*box-shadow: rgba(0, 0, 0, 0.5) 1px 18px 18px;*/
      box-shadow: 0 0 50px black ;
      z-index: 2;
      top: 250px;
@@ -101,8 +98,7 @@
       border-radius: 8px;
       
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;;
-    }
-  
+    } 
  </style>
 
 <!-- CSS STYLES -->

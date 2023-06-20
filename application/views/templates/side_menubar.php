@@ -156,7 +156,6 @@
         <?php endif; ?>
         <!-- user permission info -->
         <li><a href="<?php echo base_url('auth/logout') ?>"><i class="glyphicon glyphicon-log-out"></i> <span>Logout</span></a></li>
-
       </ul>
     </section>
     <!-- /.sidebar -->
