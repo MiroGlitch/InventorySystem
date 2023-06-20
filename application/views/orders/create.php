@@ -40,7 +40,7 @@
             <h3 class="box-title">Add Order</h3>
           </div>
           <!-- /.box-header -->
-          <form role="form" action="<?php base_url('orders/create') ?>" method="post" class="form-horizontal">
+          <form role="form" action="<?php base_url('orders/create') ?>" method="post" class="form-horizontal" onsubmit="return validateQuantity()">
               <div class="box-body">
 
                 <?php echo validation_errors(); date_default_timezone_set("Asia/Manila");?>
@@ -97,12 +97,16 @@
                             <?php foreach ($products as $k => $v): ?>
                               <!-- If the product's qty is below 0, it will not show in the dropdown -->
                               <?php if ($v['qty'] > 1): ?>
-                              <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
+                                <?php if ($v['qty'] < 10): ?>
+                                  <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?> (<?php echo $v['qty'] ?> item(s) left)</option>
+                                <?php else: ?>
+                                  <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
+                                <?php endif; ?>
                               <?php endif; ?>
-                              <?php endforeach ?>
+                            <?php endforeach ?>
                           </select>
-                        </td>
-                        <td><input type="number" name="qty[]" id="qty_1" class="form-control text-center" min="1" required onkeyup="getTotal(1)"></td>
+                        </td>                  
+                        <td><input type="text" name="qty[]" id="qty_1" class="form-control text-center" min="1" required onkeyup="getTotal(1)"></td>
                         <td>
                           <input type="text" name="rate[]" id="rate_1" class="form-control" disabled autocomplete="off">
                           <input type="hidden" name="rate_value[]" id="rate_value_1" class="form-control" autocomplete="off">
@@ -206,44 +210,47 @@
       var row_id = count_table_tbody_tr + 1;
 
       $.ajax({
-          url: base_url + '/orders/getTableProductRow/',
-          type: 'post',
-          dataType: 'json',
-          success:function(response) {
-            
-              // console.log(reponse.x);
-               var html = '<tr id="row_'+row_id+'">'+
-                   '<td>'+ 
-                    '<select class="form-control select_group product" data-row-id="'+row_id+'" id="product_'+row_id+'" name="product[]" style="width:100%;" onchange="getProductData('+row_id+')">'+
-                        '<option value=""></option>';
-                        $.each(response, function(index, value) {
-                          if (value.qty > 0) {
-                          html += '<option value="'+value.id+'">'+value.name+'</option>';
-                          }             
-                        });
-                        
-                      html += '</select>'+
-                    '</td>'+ 
-                    '<td><input type="number" name="qty[]" id="qty_'+row_id+'" class="form-control" min="1" onkeyup="getTotal('+row_id+')"></td>'+
-                    '<td><input type="text" name="rate[]" id="rate_'+row_id+'" class="form-control" disabled><input type="hidden" name="rate_value[]" id="rate_value_'+row_id+'" class="form-control"></td>'+
-                    '<td><input type="text" name="amount[]" id="amount_'+row_id+'" class="form-control" disabled><input type="hidden" name="amount_value[]" id="amount_value_'+row_id+'" class="form-control"></td>'+
-                    '<td><button type="button" class="btn btn-default" onclick="removeRow(\''+row_id+'\')"><i class="fa fa-close"></i></button></td>'+
-                    '</tr>';
+        url: base_url + '/orders/getTableProductRow/',
+        type: 'post',
+        dataType: 'json',
+        success:function(response) {
+          var html = '<tr id="row_'+row_id+'">'+
+            '<td>'+ 
+            '<select class="form-control select_group product" data-row-id="'+row_id+'" id="product_'+row_id+'" name="product[]" style="width:100%;" onchange="getProductData('+row_id+')">'+
+            '<option value=""></option>';
 
-                if(count_table_tbody_tr >= 1) {
-                $("#product_info_table tbody tr:last").after(html);  
+          $.each(response, function(index, value) {
+            if (value.qty > 0) {
+              var optionText = value.name;
+              if (value.qty < 10) {
+                optionText += ' (' + value.qty + ' item(s) left)';
               }
-              else {
-                $("#product_info_table tbody").html(html);
-              }
+              html += '<option value="'+value.id+'">'+optionText+'</option>';
+            }
+          });
 
-              $(".product").select2();
+          html += '</select>'+
+            '</td>'+ 
+            '<td><input type="text" name="qty[]" id="qty_'+row_id+'" class="form-control text-center" min="1" onkeyup="getTotal('+row_id+')"></td>'+
+            '<td><input type="text" name="rate[]" id="rate_'+row_id+'" class="form-control" disabled><input type="hidden" name="rate_value[]" id="rate_value_'+row_id+'" class="form-control"></td>'+
+            '<td><input type="text" name="amount[]" id="amount_'+row_id+'" class="form-control" disabled><input type="hidden" name="amount_value[]" id="amount_value_'+row_id+'" class="form-control"></td>'+
+            '<td><center><button type="button" class="btn btn-default" onclick="removeRow(\''+row_id+'\')"><i class="fa fa-close"></i></button></center></td>'+
+            '</tr>';
 
+          if(count_table_tbody_tr >= 1) {
+            $("#product_info_table tbody tr:last").after(html);  
           }
-        });
+          else {
+            $("#product_info_table tbody").html(html);
+          }
+
+          $(".product").select2();
+        }
+      });
 
       return false;
     });
+
 
   }); // /document
 
@@ -358,4 +365,26 @@
     $("#product_info_table tbody tr#row_"+tr_id).remove();
     subAmount();
   }
+
+  //Won't proceed if the customer ordered more than the available quantity
+  function validateQuantity() {
+  // Get the values entered by the user
+  var quantities = document.getElementsByName('qty[]');
+  var dbQuantities = <?php echo json_encode($v['qty']); ?>; // Assuming you have an array of quantities from the database
+
+  // Iterate over each quantity input field
+  for (var i = 0; i < quantities.length; i++) {
+    var quantity = parseInt(quantities[i].value);
+    var dbQuantity = dbQuantities[i]; // Assuming the order of quantities in the array matches the order of input fields
+
+    // Compare the user-entered quantity with the database quantity
+    if (quantity > dbQuantity) {
+      alert("Sorry, the quantity entered for product #" + (i + 1) + " is greater than the available quantity.");
+      return false; // Prevent form submission
+    }
+  }
+
+  return true; // Allow form submission
+}
+
 </script>
