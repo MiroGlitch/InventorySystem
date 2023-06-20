@@ -1,12 +1,20 @@
 
+<style>
+  .box-header{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 
+  .box-body{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  
+</style>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-  <style>
-    .content-wrapper{
-      background-color: #A8D0E6;
-    }
-  </style>
+  
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -31,11 +39,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            <style>
-                .box-body{
-                background-color: #A8D0E6;
-                }
-              </style>
+            
               <table class="table table-bordered table-condensed table-hovered">
                 <tr>
                   <th>Username</th>

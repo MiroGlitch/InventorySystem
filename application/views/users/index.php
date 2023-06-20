@@ -1,12 +1,27 @@
+<style>
+  .content-wrapper{
+    background-color: white;
+  }
 
+  .box-header{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .box-title{
+    background-color: #A8D0E6;
+    
+  }
+  
+  .box-body{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+                                  
+</style>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-  <style>
-    .content-wrapper{
-      background-color: #A8D0E6;
-    }
-  </style>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -44,26 +59,11 @@
 
 
           <div class="box">
-            <div class="box-header">
-            <style>
-                .box-header{
-                background-color: #A8D0E6;
-                }
-              </style>
+            <div class="box-header">         
               <h3 class="box-title">Manage Users</h3>
-              <style>
-                .box-title{
-                background-color: #A8D0E6;
-                }
-              </style>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            <style>
-                .box-body{
-                background-color: #A8D0E6;
-                }
-              </style>
               <table id="userTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>

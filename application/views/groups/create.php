@@ -1,4 +1,32 @@
+<style>
+  .content-wrapper{
+    background-color: white;
+  }
 
+  .box-header{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .box-title{
+    background-color: #A8D0E6;
+    
+  }
+  
+  .box-body{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+      
+  .box-footer{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .minimal .checkbox{
+    accent-color: gray;
+  }
+</style>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

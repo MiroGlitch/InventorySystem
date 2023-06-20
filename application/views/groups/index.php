@@ -1,4 +1,26 @@
+<style>
+  .content-wrapper{
+    background-color: white;
+  }
 
+  .box-header{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .box-title{
+    background-color: #A8D0E6;
+    
+  }
+  
+  .box-body{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+      
+  
+  
+</style>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -38,11 +60,13 @@
           <?php endif; ?>
 
           <div class="box">
+          
             <div class="box-header">
               <h3 class="box-title">Manage Groups</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+            
               <table id="groupTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>

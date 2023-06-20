@@ -1,12 +1,23 @@
+<style>
+  .box-header{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 
+  .box-body{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .box-footer{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+</style>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-  <style>
-    .content-wrapper{
-      background-color: #A8D0E6;
-    }
-  </style>
+  
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -45,11 +56,7 @@
             <!-- /.box-header -->
             <form role="form" action="<?php base_url('users/setting') ?>" method="post">
               <div class="box-body">
-              <style>
-                .box-body{
-                background-color: #A8D0E6;
-                }
-              </style>
+              
 
                 <?php echo validation_errors(); ?>
 
