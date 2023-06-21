@@ -55,7 +55,7 @@
             <h3 class="box-title">Add Order</h3>
           </div>
           <!-- /.box-header -->
-          <form role="form" action="<?php base_url('orders/create') ?>" method="post" class="form-horizontal" onsubmit="return validateQuantity()">
+          <form role="form" action="<?php base_url('orders/create') ?>" method="post" class="form-horizontal" onsubmit="return validateQuantity() && validateDuplicate()">
               <div class="box-body">
 
                 <?php echo validation_errors(); date_default_timezone_set("Asia/Manila");?>
@@ -113,9 +113,9 @@
                               <!-- If the product's qty is below 0, it will not show in the dropdown -->
                               <?php if ($v['qty'] > 1): ?>
                                 <?php if ($v['qty'] < 10): ?>
-                                  <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?> (<?php echo $v['qty'] ?> item(s) left)</option>
-                                <?php else: ?>
-                                  <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
+                                  <option value="<?php echo $v['id'] ?>" data-qty="<?php echo $v['qty'] ?>"><?php echo $v['name'] ?> (<?php echo $v['qty'] ?> item(s) left)</option>
+    <?php else: ?>
+      <option value="<?php echo $v['id'] ?>" data-qty="<?php echo $v['qty'] ?>"><?php echo $v['name'] ?></option>
                                 <?php endif; ?>
                               <?php endif; ?>
                             <?php endforeach ?>
@@ -381,11 +381,33 @@
     subAmount();
   }
 
+  //Prevent the order from proceeding when the user selects identical products in the dropdowns
+  function validateDuplicate() {
+  var selectedProducts = [];
+  var isValid = true;
+
+  $(".product").each(function() {
+    var productId = $(this).val();
+    if (selectedProducts.includes(productId)) {
+      isValid = false;
+      event.preventDefault(); // Exit the loop early if duplicate found
+    }
+    selectedProducts.push(productId);
+  });
+
+  if (!isValid) {
+    alert("Sorry, duplicate products are not allowed. Please select different products in each dropdown.");
+  }
+
+  return isValid;
+}
+
+  /*
   //Won't proceed if the customer ordered more than the available quantity
   function validateQuantity() {
   // Get the values entered by the user
   var quantities = document.getElementsByName('qty[]');
-  var dbQuantities = <?php echo json_encode($v['qty']); ?>; // Assuming you have an array of quantities from the database
+  var dbQuantities = <?php echo json_encode($v['qty']); ?>; // Assuming have an array of quantities from the database
 
   // Iterate over each quantity input field
   for (var i = 0; i < quantities.length; i++) {
@@ -398,8 +420,20 @@
       return false; // Prevent form submission
     }
   }
-
   return true; // Allow form submission
 }
+*/
 
+function validateQuantity() {
+    var rowCount = $("#product_info_table tbody tr").length;
+    for (var i = 1; i <= rowCount; i++) {
+      var productQty = parseInt($("#product_" + i).find(":selected").attr("data-qty"));
+      var orderedQty = parseInt($("#qty_" + i).val());
+      if (orderedQty > productQty) {
+        alert("Ordered quantity exceeds available quantity");
+        return false; // Prevent form submission
+      }
+    }
+    return true; // Allow form submission
+  }
 </script>
