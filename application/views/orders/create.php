@@ -203,6 +203,45 @@
 </div>
 <!-- /.content-wrapper -->
 
+<!-- Modal for duplicate entry -->
+<div class="modal fade" id="duplicateModal" tabindex="-1" role="dialog" aria-labelledby="duplicateModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Duplicate Entry</h4>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Sorry, duplicate products are not allowed.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for validate quantity -->
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Quantity Error</h4>
+        </button>
+      </div>
+      <div class="modal-body" id="errorModalMessage">
+        <!-- Error message will be inserted here -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <script type="text/javascript">
   var base_url = "<?php echo base_url(); ?>";
 
@@ -396,7 +435,7 @@
   });
 
   if (!isValid) {
-    alert("Sorry, duplicate products are not allowed. Please select different products in each dropdown.");
+    $('#duplicateModal').modal('show');
   }
 
   return isValid;
@@ -430,7 +469,9 @@ function validateQuantity() {
       var productQty = parseInt($("#product_" + i).find(":selected").attr("data-qty"));
       var orderedQty = parseInt($("#qty_" + i).val());
       if (orderedQty > productQty) {
-        alert("Ordered quantity exceeds available quantity");
+        var errorMessage = "Sorry, there are only " + productQty + " items left.";
+        $("#errorModalMessage").text(errorMessage);
+        $("#errorModal").modal("show");
         return false; // Prevent form submission
       }
     }
