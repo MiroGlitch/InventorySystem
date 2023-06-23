@@ -35,39 +35,41 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Profile Page</h3>
+              <h3 class="box-title">Contact Us</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
             
               <table class="table table-bordered table-condensed table-hovered">
                 <tr>
-                  <th>Username</th>
-                  <td><?php echo $user_data['username']; ?></td>
+                  <th></th>
+                  <th>Back-End Developer</th>
+                  <th>Team Leader</th>
+                  <th>Front-End Developer</th>
+                </tr>
+                <tr>
+                  <th>Name</th>
+                  <td>Milljedh Romel G. Buayan</td>
+                  <td>Brian Barreras</td>
+                  <td>Nathanielle Nazzer Lamsen</td>
                 </tr>
                 <tr>
                   <th>Email</th>
-                  <td><?php echo $user_data['email']; ?></td>
+                  <td>mr.buayan@gmail.com</td>
+                  <td>briandave716@gmail.com</td>
+                  <td>lamsen.ns@gmail.com</td>
                 </tr>
                 <tr>
-                  <th>First Name</th>
-                  <td><?php echo $user_data['firstname']; ?></td>
+                  <th>Contact Number</th>
+                  <td>09082584655</td>
+                  <td>09563865074</td>
+                  <td>09275824445</td>
                 </tr>
                 <tr>
-                  <th>Last Name</th>
-                  <td><?php echo $user_data['lastname']; ?></td>
-                </tr>
-                <tr>
-                  <th>Gender</th>
-                  <td><?php echo ($user_data['gender'] == 1) ? 'Male' : 'Gender'; ?></td>
-                </tr>
-                <tr>
-                  <th>Phone</th>
-                  <td><?php echo $user_data['phone']; ?></td>
-                </tr>
-                <tr>
-                  <th>Group</th>
-                  <td><span class="label label-info"><?php echo $user_group['group_name']; ?></span></td>
+                  <th>Socials</th>
+                  <td>https://linkedin.com/in/milljedh-romel-buayan</td>
+                  <td></td>
+                  <td>https://linkedin.com/in/nathanielle-nazzer-lamsen-4b2407255/</td>
                 </tr>
               </table>
             </div>
