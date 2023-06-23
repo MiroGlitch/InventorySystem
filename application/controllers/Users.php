@@ -231,14 +231,14 @@ class Users extends Admin_Controller
         $this->render_template('users/profile', $this->data);
 	}
 
-	public function ContactUs()
+	public function contact_us()
 	{
 		if(!in_array('viewProfile', $this->permission)) {
 			redirect('dashboard', 'refresh');
 		}
 
 		$user_id = $this->session->userdata('id');
-        $this->render_template('users/ContactUs', $this->data);
+        $this->render_template('users/contact_us', $this->data);
 	}
 
 	public function setting()

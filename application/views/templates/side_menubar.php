@@ -153,7 +153,7 @@
           <li><a href="<?php echo base_url('users/setting/') ?>"><i class="fa fa-wrench"></i> <span>Setting</span></a></li>
         <?php endif; ?>
         <?php if(in_array('viewProfile', $user_permission)): ?>
-          <li><a href="<?php echo base_url('users/ContactUs/') ?>"><i class="fa fa-phone"></i> <span>Contact us</span></a></li>
+          <li><a href="<?php echo base_url('users/contact_us/') ?>"><i class="fa fa-phone"></i> <span>Contact us</span></a></li>
         <?php endif; ?>
 
         <?php endif; ?>
