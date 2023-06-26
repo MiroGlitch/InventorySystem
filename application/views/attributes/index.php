@@ -44,10 +44,10 @@
           </div>
         <?php endif; ?>
 
-        <?php //if(in_array('createGroup', $user_permission)): ?>
+        <?php if(in_array('createAttribute', $user_permission)): ?>
           <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Attribute</button>
           <br /> <br />
-        <?php //endif; ?>
+        <?php endif; ?>
 
         <div class="box">
           <div class="box-header">
@@ -61,9 +61,9 @@
                 <th>Attribute Name</th>
                 <th>Total value</th>
                 <th>Status</th>
-                <?php //if(in_array('updateGroup', $user_permission) || in_array('deleteGroup', $user_permission)): ?>
+                <?php if(in_array('updateAttribute', $user_permission) || in_array('deleteAttribute', $user_permission)): ?>
                   <th>Action</th>
-                <?php //endif; ?>
+                <?php endif; ?>
               </tr>
               </thead>
 
