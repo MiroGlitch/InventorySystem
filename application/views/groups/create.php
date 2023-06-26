@@ -175,6 +175,13 @@
                         <td> - </td>
                         <td> - </td>
                       </tr>
+                      <tr>
+                        <td>Contact Us</td>
+                        <td> - </td>
+                        <td> - </td>
+                        <td><input type="checkbox" name="permission[]" id="permission" value="viewProfile" class="minimal"></td>
+                        <td> - </td>
+                      </tr>
                     </tbody>
                   </table>
                   
