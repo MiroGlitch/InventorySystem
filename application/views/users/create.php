@@ -27,7 +27,7 @@
   }
 
   .form-control{
-    border-radius: 4px;
+    border-radius: 8px;
   }
 
   

@@ -42,8 +42,8 @@
   <style>
   
     .login-page {
-      background: rgb(152,242,224);
-      background: radial-gradient(circle, rgba(152,242,224,1) 0%, rgba(20,100,170,1) 100%);
+      background: rgb(86,193,197);
+      background: radial-gradient(circle, rgba(86,193,197,1) 0%, rgba(66,142,174,1) 32%, rgba(45,86,149,1) 85%);
     }
     
     .container {

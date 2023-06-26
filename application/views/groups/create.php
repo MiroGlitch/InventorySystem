@@ -26,6 +26,10 @@
   .minimal .checkbox{
     accent-color: gray;
   }
+
+  .form-control{
+    border-radius: 8px;
+  }
 </style>
 
   <!-- Content Wrapper. Contains page content -->

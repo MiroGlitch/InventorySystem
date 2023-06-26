@@ -50,7 +50,7 @@
                 <tr>
                   <th>Name</th>
                   <td>Milljedh Romel G. Buayan</td>
-                  <td>Brian Barreras</td>
+                  <td>Brian Dave O. Barreras</td>
                   <td>Nathanielle Nazzer Lamsen</td>
                 </tr>
                 <tr>
