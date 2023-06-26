@@ -1,4 +1,36 @@
+<style>
+  .content-wrapper{
+    background-color: white;
+  }
 
+  .box-header{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .box-title{
+    background-color: #A8D0E6;
+    
+  }
+  
+  .box-body{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+      
+  .box-footer{
+    background-color: #A8D0E6;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .minimal .checkbox{
+    accent-color: gray;
+  }
+
+  .form-control{
+    border-radius: 8px;
+  }
+</style>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -230,6 +262,15 @@
                           if(in_array('updateSetting', $serialize_permission)) { echo "checked"; } 
                         } ?>></td>
                         <td> - </td>
+                        <td> - </td>
+                      </tr>
+                      <tr>
+                        <td>Contact Us</td>
+                        <td> - </td>
+                        <td> - </td>
+                        <td><input type="checkbox" name="permission[]" id="permission" class="minimal" value="viewProfile" <?php if($serialize_permission) {
+                          if(in_array('viewProfile', $serialize_permission)) { echo "checked"; } 
+                        } ?>></td>
                         <td> - </td>
                       </tr>
                     </tbody>
