@@ -1,12 +1,12 @@
 # Inventory System
 
-Create an Inventory System using CodeIgniter, MySQL &amp; PHP
+Create an Inventory System using CodeIgniter, MySQL, Boostrap & PHP
 
 # Screenshots
 
-![Login Page](https://github.com/ronknight/InventorySystem/blob/master/assets/images/screenshots/login.PNG)
-![Dashboard](https://github.com/ronknight/InventorySystem/blob/master/assets/images/screenshots/dashboard.PNG)
-![Database](https://github.com/ronknight/InventorySystem/blob/master/assets/images/screenshots/database.PNG)
+![Login Page](https://github.com/MiroGlitch/InventorySystem/blob/Intern/assets/images/screenshots/login.PNG)
+![Dashboard](https://github.com/MiroGlitch/InventorySystem/blob/Intern/assets/images/screenshots/dashboard.PNG)
+![Database](https://github.com/MiroGlitch/InventorySystem/blob/Intern/assets/images/screenshots/database.PNG)
 
 # System Features
 1. Manage Users
@@ -42,6 +42,10 @@ Create an Inventory System using CodeIgniter, MySQL &amp; PHP
 * View the logged in user information
 12. Setting
 * View, and Update logged in user information
+13. Contact Us
+* View information about the developers
+14. Logout
+* Logging out of the system
 
 # Super Admin Credential
 email: admin@admin.com
@@ -76,9 +80,5 @@ MIT
 
 # Resources
 
-Original Sourcecode from CodeFolder - https://codersfolder.com/2018/02/stock-management-system-v2-codeigniter/
 CodeIgniter - Web Framework
-AdminLTE - Theme
-
-# Acknowledgement
-Great Project
+AdminLTE v2.4.0 - Theme
