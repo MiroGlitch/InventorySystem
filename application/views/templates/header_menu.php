@@ -1,15 +1,7 @@
 <style>
- 
-
   .logo-lg {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
   }
-
-  
-
-  
-
-
 </style>
 
 <header class="main-header">
