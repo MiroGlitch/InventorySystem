@@ -1,6 +1,6 @@
 # Inventory System
 
-Create an Inventory System using CodeIgniter, MySQL, Boostrap & PHP
+Inventory System by Team 2 (BNM) in partial fulfillment of the requirements for COBRA Itech Services Corporation.
 
 # Screenshots
 
@@ -48,10 +48,10 @@ Create an Inventory System using CodeIgniter, MySQL, Boostrap & PHP
 * Logging out of the system
 
 # Super Admin Credential
-email: admin@admin.com
-password: password
+Email: admin@admin.com
+Password: password
 
-database name: stock
+Database name: stock
 
 # Server Requirements
 
@@ -78,7 +78,10 @@ Application Server
 
 MIT
 
-# Resources
+# Resources used
 
+MySQL - Database 
+Bootstrap & AdminLTE - Frontend
+HTML, CSS, Javascript, PHP - Website Development
 CodeIgniter - Web Framework
 AdminLTE v2.4.0 - Theme
