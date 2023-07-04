@@ -7,8 +7,6 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  
-  
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/font-awesome/css/font-awesome.min.css') ?>">
@@ -35,7 +33,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png">
   <link rel="manifest" href="./assets/images/site.webmanifest">
 
-</head>
+
 
 <!-- CSS STYLES -->
   
@@ -84,8 +82,7 @@
 
    .icheckbox_square-blue {
       border-radius: 4px;
-     
-     border-color: black;
+      border-color: black;
     }
 
     .checkbox {
@@ -96,15 +93,19 @@
 
     .btn.btn-primary.btn-block.btn-flat {
       border-radius: 8px;
-      
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;;
     } 
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .login-box-body {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
  </style>
-
+</head>
 <!-- CSS STYLES -->
-
-  
-
 
 <body class="hold-transition login-page">
 <div class="container">
