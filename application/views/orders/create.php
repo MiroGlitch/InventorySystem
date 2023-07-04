@@ -93,6 +93,7 @@
                 
                 
                 <br /> <br/>
+                <div class="table-responsive">
                 <table class="table table-bordered" id="product_info_table">
                   <thead>
                     <tr>
@@ -134,6 +135,7 @@
                      </tr>
                    </tbody>
                 </table>
+    </div>
 
                 <br /> <br/>
 

@@ -38,8 +38,9 @@
               <h3 class="box-title">Profile Page</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
             
+            <div class="box-body">
+            <div class="table-responsive">
               <table class="table table-bordered table-condensed table-hovered">
                 <tr>
                   <th>Username</th>
@@ -70,6 +71,7 @@
                   <td><span class="label label-info"><?php echo $user_group['group_name']; ?></span></td>
                 </tr>
               </table>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>

@@ -39,7 +39,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            
+            <div class="table-responsive">
               <table class="table table-bordered table-condensed table-hovered">
                 <tr>
                   <th></th>
@@ -72,6 +72,7 @@
                   <td>https://linkedin.com/in/nathanielle-nazzer-lamsen-4b2407255/</td>
                 </tr>
               </table>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>

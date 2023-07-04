@@ -64,6 +64,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+            <div class="table-responsive">
               <table id="userTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -104,6 +105,7 @@
                   <?php endif; ?>
                 </tbody>
               </table>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>

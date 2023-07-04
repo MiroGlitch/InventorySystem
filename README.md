@@ -80,8 +80,8 @@ MIT
 
 # Resources used
 
-MySQL - Database 
-Bootstrap & AdminLTE - Frontend
-HTML, CSS, Javascript, PHP - Website Development
-CodeIgniter - Web Framework
-AdminLTE v2.4.0 - Theme
+1. MySQL - Database 
+2. Bootstrap & AdminLTE - Frontend
+3. HTML, CSS, Javascript, PHP - Website Development
+4. CodeIgniter - Web Framework
+5. AdminLTE v2.4.0 - Theme

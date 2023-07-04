@@ -196,7 +196,7 @@
         elErrorContainer: '#kv-avatar-errors-1',
         msgErrorClass: 'alert alert-block alert-danger',
         // defaultPreviewContent: '<img src="/uploads/default_avatar_male.jpg" alt="Your Avatar">',
-        layoutTemplates: {main2: '{preview} ' +  btnCust + ' {remove} {browse}'},
+        layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}'},
         allowedFileExtensions: ["jpg", "png", "gif"]
     });
 
